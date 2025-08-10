@@ -35,8 +35,8 @@ std::vector<std::string> FileLineReader::GetFilesPath(const std::string& filePat
 	for (auto& entry : std::filesystem::directory_iterator(filePath)) {
 		if (entry.is_regular_file()) {
 			std::string ext = entry.path().extension().string();
-			if (ext == ".cpp" || ext == ".h") {
-				files.push_back(entry.path().string());
+			if (ext == ".cpp" || ext == ".h" || ext == ".c") {
+				files.push_back(entry.path().string()); 
 			}
 		}
 		else if (entry.is_directory()){
